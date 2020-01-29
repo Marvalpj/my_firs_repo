@@ -46,9 +46,9 @@ imprimirNombre(nelson);
 imprimirNombreYEdad(pedro);
 imprimirNombreYEdad(nelson);
 //los objetos en js cuando se envia como parametro se pasan por refeencia
-function cumpleaniosObjeto(persona){
-    persona.edad++;
-}
+// function cumpleaniosObjeto(persona){
+//     persona.edad++;
+// }
 //asi se desglosa un objeto 
 
 function cumpleaniosDesglose(persona){
@@ -90,8 +90,6 @@ console.log(personasMayores)
 //     persona.edad += 10;
 //     return persona
 // }
-
-
 const embejecer = persona => {
     return {
         ...persona,
@@ -105,8 +103,12 @@ const embejecer = persona => {
 //     }
 // )
 
-
-
 var personaEnvejece = personas.map(embejecer)
-
 console.log(personaEnvejece)
+
+
+const reducer = ( acumulador , personas) => {
+    return acumulador += personas.edad
+}
+//parametros funcion y valor inicial
+var totalEdades = personas.reduce( reducer , 0 );
